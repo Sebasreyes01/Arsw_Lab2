@@ -1,0 +1,3 @@
+Parte I
+1. A qué se debe este consumo?, cual es la clase responsable?
+Este consumo se debe a que la clase "Consumer" esta revisando constantemente si la cola tiene algo para consumir, por lo tanto a pesar de que la cola no tenga nada el consumidor continua preguntandole.
