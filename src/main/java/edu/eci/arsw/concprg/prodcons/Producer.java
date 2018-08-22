@@ -38,11 +38,12 @@ public class Producer extends Thread {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                } else {
+                    dataSeed = dataSeed + rand.nextInt(100);
+                    System.out.println("Producer added " + dataSeed);
+                    queue.add(dataSeed);
+                    queue.notify();
                 }
-                dataSeed = dataSeed + rand.nextInt(100);
-                System.out.println("Producer added " + dataSeed);
-                queue.add(dataSeed);
-//                queue.notify();
 
             }
 //            try {

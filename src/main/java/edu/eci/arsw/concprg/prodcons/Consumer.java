@@ -30,14 +30,13 @@ public class Consumer extends Thread{
                     int elem = queue.poll();
                     System.out.println("Consumer consumes " + elem);
                     queue.notify();
+                } else {
+                    try {
+                        queue.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-//                } else {
-//                    try {
-//                        queue.wait();
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
             }
             try {
                 Thread.sleep(1000);
