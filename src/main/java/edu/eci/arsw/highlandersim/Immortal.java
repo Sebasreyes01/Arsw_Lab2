@@ -21,6 +21,8 @@ public class Immortal extends Thread {
 
     private boolean paused = false;
 
+    private boolean stopped = false;
+
 
     public Immortal(String name, List<Immortal> immortalsPopulation, int health, int defaultDamageValue, ImmortalUpdateReportCallback ucb) {
         super(name);
@@ -33,7 +35,7 @@ public class Immortal extends Thread {
 
     public void run() {
 
-        while(true) {
+        while(!stopped) {
             while (!paused) {
                 Immortal im;
 
@@ -54,6 +56,9 @@ public class Immortal extends Thread {
                     Thread.sleep(1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                }
+                if(stopped) {
+                    break;
                 }
 
             }
@@ -103,6 +108,10 @@ public class Immortal extends Thread {
         synchronized (pauseLock) {
             pauseLock.notifyAll();
         }
+    }
+
+    public void stopThread() {
+        stopped = true;
     }
 
 }
