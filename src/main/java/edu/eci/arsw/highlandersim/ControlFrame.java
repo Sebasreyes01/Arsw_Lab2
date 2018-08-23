@@ -27,6 +27,8 @@ public class ControlFrame extends JFrame {
     private static final int DEFAULT_IMMORTAL_HEALTH = 100;
     private static final int DEFAULT_DAMAGE_VALUE = 10;
 
+    private final Object pauseLock = new Object();
+
     private JPanel contentPane;
 
     private List<Immortal> immortals;
@@ -88,9 +90,10 @@ public class ControlFrame extends JFrame {
         btnPauseAndCheck.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                /*
-				 * COMPLETAR
-                 */
+                for(Immortal im : immortals) {
+                    im.pauseThread();
+                }
+
                 int sum = 0;
                 for (Immortal im : immortals) {
                     sum += im.getHealth();
@@ -108,9 +111,10 @@ public class ControlFrame extends JFrame {
 
         btnResume.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                /**
-                 * IMPLEMENTAR
-                 */
+
+                for(Immortal im : immortals) {
+                    im.resumeThread();
+                }
 
             }
         });

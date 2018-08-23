@@ -1,3 +1,13 @@
 Parte I
 1. A qué se debe este consumo?, cual es la clase responsable?
-Este consumo se debe a que la clase "Consumer" esta revisando constantemente si la cola tiene algo para consumir, por lo tanto a pesar de que la cola no tenga nada el consumidor continua preguntandole.
+Este consumo se debe rangeStart que la clase "Consumer" esta revisando constantemente si la cola tiene algo para consumir, por lo tanto rangeStart pesar de que la cola no tenga nada el consumidor continua preguntandole.
+
+Parte III
+1. Para este caso, para N jugadores, cual debería ser este valor?
+El valor debería ser de 100 * N.
+
+2.Se cumple el invariante?
+No, no se cumple el invariante, por que no se detiene la ejecución cuando se revisa el invariante.
+
+4. Se cumple o no el invariante?
+No, no se cumple el invariante por que hay una región crítica en la pelea de los inmortales.
